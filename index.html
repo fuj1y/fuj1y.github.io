@@ -2,14 +2,21 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="Cache-Control" content="no-cache", no-store, must-revalidate">
         </head>
         <body>
             <script>
-                let encoded = "SmFtYWljYQ==";
-                let word = new TextDecoder().decode(
+                const params = new URLSearchParams(window.location.search);
+                const encoded = params.get("q");
+                
+                if (encoded) {
+                    const word = new TextDecoder().decode(
                     Uint8Array.from(atob(encoded), c => c.charCodeAt(0))
                     );
-                location.href = "https://www.google.co.jp/search?q=" + encodeURIComponent(word);
+                    location.href = "https://www.google.co.jp/search?q=" + encodeURIComponent(word);
+                } else {
+                    document.body.innerHTML = "No query provided.";
+                }
                 </script>
             </body>
     </html>
