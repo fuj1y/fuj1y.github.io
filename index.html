@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        </head>
+        <body>
+            <script>
+                let encoded = "SmFtYWljYQ==";
+                let word = decodedURIComponent(escape(atob(encoded)));
+                location.href = "https://www.google.com/search?q=" + encodeURIComponent(word);
+                </script>
+            </body>
+    </html>
