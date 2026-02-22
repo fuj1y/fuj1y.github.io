@@ -13,7 +13,7 @@
                     const word = new TextDecoder().decode(
                     Uint8Array.from(atob(encoded), c => c.charCodeAt(0))
                     );
-                    location.href = "https://www.google.co.jp/search?q=" + encodeURIComponent(word);
+                    location.replace("https://www.google.co.jp/search?q=" + encodeURIComponent(word));
                 } else {
                     document.body.innerHTML = "No query provided.";
                 }
