@@ -6,7 +6,9 @@
         <body>
             <script>
                 let encoded = "SmFtYWljYQ==";
-                let word = decodedURIComponent(escape(atob(encoded)));
+                let word = new TextDecoder().decode(
+                    Uint8Array.from(atob(encoded), c => c.charCodeAt(0))
+                    );
                 location.href = "https://www.google.com/search?q=" + encodeURIComponent(word);
                 </script>
             </body>
